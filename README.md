@@ -1,10 +1,11 @@
+<img src='animation.webp' width=320, height=240>
+
 # Karplus-Strong Synth
 
 This project demonstrates the usage of my Karplus-Strong Algorithm (ksalgo) library to synthesize sound from keyboard input.
 It maps various keys to different musical notes and displays the notes as a waveform.
 
 ksalgo repository:
-
 https://github.com/masonarmand/ksalgo
 
 ## Features
