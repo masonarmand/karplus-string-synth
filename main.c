@@ -27,6 +27,8 @@ int main()
         bool key_down;
         float frequency;
         int note_index;
+        int w;
+        int h;
 
         if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
                 printf("Error initializing SDL: %s\n", SDL_GetError());
@@ -37,7 +39,7 @@ int main()
                                   SDL_WINDOWPOS_UNDEFINED,
                                   SDL_WINDOWPOS_UNDEFINED,
                                   640, 480,
-                                  SDL_WINDOW_SHOWN);
+                                  SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN);
         if (!window) {
                 printf("Error creating SDL window: %s\n", SDL_GetError());
                 SDL_Quit();
@@ -86,7 +88,8 @@ int main()
                 }
                 SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
                 SDL_RenderClear(renderer);
-                draw_waveform(renderer, audio_buffer, AUDIO_BUFFER_SIZE, 640, 480);
+                SDL_GetWindowSize(window,&w, &h);
+                draw_waveform(renderer, audio_buffer, AUDIO_BUFFER_SIZE, w, h);
                 SDL_RenderPresent(renderer);
 
                 SDL_Delay(10);
